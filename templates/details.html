@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Job Details | JobGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="{{ url_for('home') }}"
+           class="logo">
+            JobGuard
+        </a>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('analyze') }}">
+                Analyze
+            </a>
+
+            <a href="{{ url_for('history') }}">
+                History
+            </a>
+
+            <a href="{{ url_for('safety') }}">
+                Safety
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+        <button
+            id="menuButton"
+            class="menu-button">
+            ☰
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<section class="details-hero">
+
+    <div class="details-hero-content">
+
+        <span class="hero-badge">
+            JOBGUARD ANALYSIS
+        </span>
+
+        <h1>
+            Job Details
+        </h1>
+
+        <p>
+            Review the complete job posting and understand
+            the security indicators detected by JobGuard.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="details-page">
+
+    <div class="details-layout">
+
+
+        <!-- =================================
+             LEFT COLUMN
+        ================================== -->
+
+        <div class="details-main">
+
+
+            <!-- JOB HEADER -->
+
+            <div class="job-main-card">
+
+                <div class="job-heading">
+
+                    <div class="job-icon">
+                        💼
+                    </div>
+
+                    <div>
+
+                        <span class="details-label">
+                            JOB POSTING
+                        </span>
+
+                        <h2>
+                            {{ job.job_title }}
+                        </h2>
+
+                        <p>
+                            {{ job.company }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="job-id">
+
+                    Job ID #{{ job.id }}
+
+                </div>
+
+            </div>
+
+
+            <!-- RISK CARD -->
+
+            <div class="risk-overview-card">
+
+                <div class="risk-top">
+
+                    <div>
+
+                        <span class="details-label">
+                            RISK ASSESSMENT
+                        </span>
+
+                        <h2>
+                            {{ job.risk_status }}
+                        </h2>
+
+                    </div>
+
+
+                    <div class="risk-score">
+
+                        <span>
+                            Risk Score
+                        </span>
+
+                        <strong>
+                            {{ job.risk_score }}
+                        </strong>
+
+                        <small>
+                            / 100
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="risk-bar">
+
+                    <div
+                        class="risk-bar-fill
+                        {% if job.risk_score >= 60 %}
+                            risk-high
+                        {% elif job.risk_score >= 30 %}
+                            risk-medium
+                        {% else %}
+                            risk-low
+                        {% endif %}"
+                        style="width: {{ job.risk_score }}%;">
+                    </div>
+
+                </div>
+
+
+                <div class="risk-scale">
+
+                    <span>
+                        Lower Risk
+                    </span>
+
+                    <span>
+                        Needs Verification
+                    </span>
+
+                    <span>
+                        Potentially Suspicious
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB INFORMATION -->
+
+            <div class="information-card">
+
+                <div class="card-heading">
+
+                    <h2>
+                        Job Information
+                    </h2>
+
+                    <p>
+                        Information provided in the job posting.
+                    </p>
+
+                </div>
+
+
+                <div class="information-grid">
+
+
+                    <div class="information-item">
+
+                        <span>
+                            💰 Salary
+                        </span>
+
+                        <strong>
+                            {{ job.salary or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            🎓 Experience
+                        </span>
+
+                        <strong>
+                            {{ job.experience or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            📍 Location
+                        </span>
+
+                        <strong>
+                            {{ job.location or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-item">
+
+                        <span>
+                            📞 Contact
+                        </span>
+
+                        <strong>
+                            {{ job.contact or "Not provided" }}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="information-card">
+
+                <div class="card-heading">
+
+                    <h2>
+                        Job Description
+                    </h2>
+
+                    <p>
+                        Original description submitted for analysis.
+                    </p>
+
+                </div>
+
+
+                <div class="job-description">
+
+                    {{ job.description }}
+
+                </div>
+
+            </div>
+
+
+            <!-- JOB URL -->
+
+            {% if job.job_url %}
+
+            <div class="information-card">
+
+                <div class="card-heading">
+
+                    <h2>
+                        Job Source
+                    </h2>
+
+                    <p>
+                        Original job posting link.
+                    </p>
+
+                </div>
+
+
+                <div class="job-source">
+
+                    <span>
+                        🔗
+                    </span>
+
+                    <a
+                        href="{{ job.job_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-external="true"
+                    >
+                        {{ job.job_url }}
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- =================================
+             RIGHT COLUMN
+        ================================== -->
+
+        <aside class="details-sidebar">
+
+
+            <!-- WARNING CARD -->
+
+            <div class="warning-analysis-card">
+
+                <div class="sidebar-heading">
+
+                    <div class="sidebar-icon">
+                        ⚠
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SECURITY CHECK
+                        </span>
+
+                        <h2>
+                            Warning Signs
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                {% if reasons %}
+
+                <div class="warning-items">
+
+                    {% for reason in reasons %}
+
+                    <div class="warning-row">
+
+                        <div class="warning-number">
+                            {{ loop.index }}
+                        </div>
+
+                        <p>
+                            {{ reason }}
+                        </p>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                {% else %}
+
+                <div class="no-warning">
+
+                    <div class="success-icon">
+                        ✓
+                    </div>
+
+                    <h3>
+                        No major warning signs
+                    </h3>
+
+                    <p>
+                        The predefined security checks did not
+                        detect major suspicious indicators.
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- RECOMMENDATION -->
+
+            <div class="verification-card">
+
+                <span class="details-label">
+                    VERIFICATION
+                </span>
+
+
+                {% if job.risk_score >= 60 %}
+
+                <h3>
+                    Verify Before Proceeding
+                </h3>
+
+                <p>
+                    Multiple suspicious indicators were detected.
+                    Verify the company through its official website
+                    before sharing personal information or making
+                    any payment.
+                </p>
+
+
+                {% elif job.risk_score >= 30 %}
+
+                <h3>
+                    Additional Verification Needed
+                </h3>
+
+                <p>
+                    Check the company's official careers page and
+                    verify the recruiter and job posting details
+                    before proceeding.
+                </p>
+
+
+                {% else %}
+
+                <h3>
+                    Continue With Normal Verification
+                </h3>
+
+                <p>
+                    No major predefined warning signs were detected.
+                    Still verify the company and job posting through
+                    official sources.
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- SAFETY TIP -->
+
+            <div class="safety-tip-card">
+
+                <div class="tip-icon">
+                    🛡
+                </div>
+
+                <div>
+
+                    <h3>
+                        Safety Tip
+                    </h3>
+
+                    <p>
+                        Never pay money to secure a job and never
+                        share OTPs, banking passwords or other
+                        sensitive information with recruiters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+    </div>
+
+
+    <!-- =========================
+         ACTIONS
+    ========================= -->
+
+    <div class="details-actions">
+
+        <a
+            href="{{ url_for('history') }}"
+            class="secondary-btn"
+        >
+            ← Back to History
+        </a>
+
+
+        <a
+            href="{{ url_for('analyze') }}"
+            class="primary-btn"
+        >
+            Analyze Another Job
+        </a>
+
+
+        <a
+            href="{{ url_for('report') }}"
+            class="danger-btn"
+        >
+            Report This Job
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                JobGuard
+            </h3>
+
+            <p>
+                Job safety analysis and verification system.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('safety') }}">
+                Safety
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 JobGuard. For educational and
+            informational purposes.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+
+</body>
+
+</html>

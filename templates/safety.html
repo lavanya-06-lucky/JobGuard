@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JobGuard | Safety Guide</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JobGuard
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">Home</a>
+
+            <a href="{{ url_for('analyze') }}">
+                Analyze Job
+            </a>
+
+            <a href="{{ url_for('history') }}">
+                History
+            </a>
+
+            <a href="{{ url_for('safety') }}" class="active">
+                Safety Guide
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('report') }}">
+                Report a Job
+            </a>
+
+            <a href="{{ url_for('admin_login') }}">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('signup') }}">
+                Sign Up
+            </a>
+
+        </nav>
+
+        <button id="menuButton" class="menu-button">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- Page Header -->
+
+    <section class="page-header">
+
+        <div>
+
+            <span class="hero-badge">
+                JOB SAFETY GUIDE
+            </span>
+
+            <h1>
+                Stay Safe While Job Hunting
+            </h1>
+
+            <p>
+                Learn how to identify common warning signs
+                and verify job opportunities before applying.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Warning Signs -->
+
+    <section class="safety-section">
+
+        <div class="section-heading">
+
+            <span>WARNING SIGNS</span>
+
+            <h2>
+                Common Signs of Suspicious Job Offers
+            </h2>
+
+            <p>
+                One warning sign does not automatically prove
+                that a job is fraudulent. Look at the overall
+                situation and verify the employer independently.
+            </p>
+
+        </div>
+
+
+        <div class="safety-grid">
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Upfront Payment
+                </h3>
+
+                <p>
+                    Be careful if a recruiter asks you to pay
+                    registration, training, processing or
+                    application fees before getting a job.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Messaging-Only Contact
+                </h3>
+
+                <p>
+                    Be cautious when recruitment happens only
+                    through WhatsApp, Telegram or personal
+                    messaging accounts without verifiable
+                    company information.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    💸
+                </div>
+
+                <h3>
+                    Unrealistic Salary
+                </h3>
+
+                <p>
+                    Extremely high income promises for simple
+                    work or applicants with no experience
+                    should be carefully verified.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    Suspicious Links
+                </h3>
+
+                <p>
+                    Check shortened URLs and unfamiliar websites
+                    carefully before opening links or entering
+                    personal information.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Missing Company Information
+                </h3>
+
+                <p>
+                    Verify the company name, official website,
+                    office details and careers page independently.
+                </p>
+
+            </div>
+
+
+            <div class="safety-card">
+
+                <div class="safety-icon">
+                    ⏰
+                </div>
+
+                <h3>
+                    Pressure to Act Quickly
+                </h3>
+
+                <p>
+                    Be cautious if someone pressures you to pay
+                    money or share personal information immediately
+                    without giving you time to verify the offer.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Personal Information -->
+
+    <section class="safety-section alternate-section">
+
+        <div class="section-heading">
+
+            <span>PROTECT YOUR INFORMATION</span>
+
+            <h2>
+                Never Share Sensitive Information
+            </h2>
+
+        </div>
+
+
+        <div class="protection-grid">
+
+
+            <div class="protection-card">
+
+                <div class="protection-icon">
+                    🔐
+                </div>
+
+                <h3>
+                    Passwords
+                </h3>
+
+                <p>
+                    Never share your account passwords with
+                    recruiters or unknown people.
+                </p>
+
+            </div>
+
+
+            <div class="protection-card">
+
+                <div class="protection-icon">
+                    🔢
+                </div>
+
+                <h3>
+                    OTPs
+                </h3>
+
+                <p>
+                    Never share OTPs received on your phone,
+                    even if someone claims to be a recruiter.
+                </p>
+
+            </div>
+
+
+            <div class="protection-card">
+
+                <div class="protection-icon">
+                    💳
+                </div>
+
+                <h3>
+                    Banking Details
+                </h3>
+
+                <p>
+                    Do not provide card numbers, PINs or other
+                    banking credentials to suspicious recruiters.
+                </p>
+
+            </div>
+
+
+            <div class="protection-card">
+
+                <div class="protection-icon">
+                    🪪
+                </div>
+
+                <h3>
+                    Identity Documents
+                </h3>
+
+                <p>
+                    Share identity documents only when necessary
+                    and with a verified organization through a
+                    trusted process.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Verification Steps -->
+
+    <section class="safety-section">
+
+        <div class="section-heading">
+
+            <span>VERIFY BEFORE APPLYING</span>
+
+            <h2>
+                A Simple Verification Checklist
+            </h2>
+
+        </div>
+
+
+        <div class="checklist">
+
+            <div class="checklist-item">
+
+                <span class="check-number">
+                    1
+                </span>
+
+                <div>
+
+                    <h3>
+                        Find the Official Company Website
+                    </h3>
+
+                    <p>
+                        Search for the company's official website
+                        independently instead of relying only on
+                        a link sent by the recruiter.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="checklist-item">
+
+                <span class="check-number">
+                    2
+                </span>
+
+                <div>
+
+                    <h3>
+                        Check the Careers Page
+                    </h3>
+
+                    <p>
+                        Check whether the same job vacancy appears
+                        on the company's official careers page.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="checklist-item">
+
+                <span class="check-number">
+                    3
+                </span>
+
+                <div>
+
+                    <h3>
+                        Verify the Recruiter
+                    </h3>
+
+                    <p>
+                        Check whether the recruiter's email and
+                        professional identity can be independently
+                        verified.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="checklist-item">
+
+                <span class="check-number">
+                    4
+                </span>
+
+                <div>
+
+                    <h3>
+                        Never Pay to Get a Job
+                    </h3>
+
+                    <p>
+                        Treat requests for upfront payments as a
+                        serious warning sign and verify the offer
+                        independently.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="checklist-item">
+
+                <span class="check-number">
+                    5
+                </span>
+
+                <div>
+
+                    <h3>
+                        Compare the Job Details
+                    </h3>
+
+                    <p>
+                        Compare salary, qualifications, location
+                        and responsibilities with information
+                        available from trusted sources.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JobGuard CTA -->
+
+    <section class="cta-section">
+
+        <div class="cta-content">
+
+            <h2>
+                Unsure About a Job Posting?
+            </h2>
+
+            <p>
+                Use JobGuard to analyze the available job
+                information and review potential risk indicators.
+            </p>
+
+            <a href="{{ url_for('analyze') }}"
+               class="btn primary-btn">
+                Analyze a Job
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Emergency Safety Note -->
+
+    <section class="disclaimer-section">
+
+        <div class="disclaimer-box">
+
+            <h3>
+                🛡️ Remember
+            </h3>
+
+            <p>
+                JobGuard provides AI-assisted analysis based on
+                the information entered by the user. A lower-risk
+                result does not guarantee that a job is genuine.
+                Always verify the employer through official and
+                independently trusted sources.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>
+                    JobGuard
+                </h3>
+
+                <p>
+                    AI-assisted fake job detection and
+                    verification system.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('analyze') }}">
+                    Analyze
+                </a>
+
+                <a href="{{ url_for('history') }}">
+                    History
+                </a>
+
+                <a href="{{ url_for('report') }}">
+                    Report
+                </a>
+
+                <a href="{{ url_for('about') }}">
+                    About
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 JobGuard. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JobGuard | Fake Job Detection</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JobGuard
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">Home</a>
+
+            <a href="{{ url_for('analyze') }}">
+                Analyze Job
+            </a>
+
+            <a href="{{ url_for('history') }}">
+                History
+            </a>
+
+            <a href="{{ url_for('safety') }}">
+                Safety Guide
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('report') }}">
+                Report a Job
+            </a>
+
+            <a href="{{ url_for('admin_login') }}">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('signup') }}">
+                Sign Up
+            </a>
+
+        </nav>
+
+        <button id="menuButton" class="menu-button">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                AI-Assisted Job Verification
+            </span>
+
+            <h1>
+                Stay Safe From
+                <span>Fake Job Offers</span>
+            </h1>
+
+            <p>
+                JobGuard helps you identify suspicious job postings
+    
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('analyze') }}"
+                   class="btn primary-btn">
+                    Analyze a Job
+                </a>
+
+                <a href="{{ url_for('safety') }}"
+                   class="btn secondary-btn">
+                    Learn Safety Tips
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero visual -->
+
+        <div class="hero-card">
+
+            <div class="scan-card">
+
+                <div class="scan-header">
+
+                    <span>Job Analysis</span>
+
+                    <span class="status-dot">
+                        ●
+                    </span>
+
+                </div>
+
+                <div class="scan-line"></div>
+
+                <div class="scan-item">
+
+                    <span>Job Description</span>
+
+                    <strong>Analyzed ✓</strong>
+
+                </div>
+
+                <div class="scan-item">
+
+                    <span>Risk Indicators</span>
+
+                    <strong>Checked ✓</strong>
+
+                </div>
+
+                <div class="scan-item">
+
+                    <span>ML Prediction</span>
+
+                    <strong>Completed ✓</strong>
+
+                </div>
+
+                <div class="risk-preview">
+
+                    <span>Risk Assessment</span>
+
+                    <strong>Verify Before Applying</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="features-section">
+
+        <div class="section-heading">
+
+            <span>WHY JOBGUARD?</span>
+
+            <h2>
+                Check Before You Trust
+            </h2>
+
+            <p>
+                JobGuard combines automated analysis with
+                practical safety indicators to help you make
+                informed decisions about job opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI-Assisted Analysis
+                </h3>
+
+                <p>
+                    Machine learning analyzes job information
+                    and identifies patterns associated with
+                    suspicious postings.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Risk Indicators
+                </h3>
+
+                <p>
+                    Detect warning signs such as registration
+                    fees, unrealistic salary claims and
+                    suspicious contact methods.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Risk Score
+                </h3>
+
+                <p>
+                    Get a simple risk score and status that
+                    helps you understand whether additional
+                    verification may be needed.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Report Suspicious Jobs
+                </h3>
+
+                <p>
+                    Found a suspicious job posting?
+                    Submit a report and provide details
+                    about the opportunity.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🗄️
+                </div>
+
+                <h3>
+                    Analysis History
+                </h3>
+
+                <p>
+                    Previously analyzed job postings are
+                    stored so you can review their results
+                    later.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Safety Guidance
+                </h3>
+
+                <p>
+                    Learn practical tips for identifying
+                    suspicious job offers before sharing
+                    personal information or making payments.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+
+    <section class="how-section">
+
+        <div class="section-heading">
+
+            <span>HOW IT WORKS</span>
+
+            <h2>
+                Analyze a Job in 4 Simple Steps
+            </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Enter Details
+                </h3>
+
+                <p>
+                    Enter the job title, company,
+                    description, salary and other
+                    available information.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Analyze
+                </h3>
+
+                <p>
+                    JobGuard analyzes the submitted
+                    information using ML and predefined
+                    risk indicators.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    View Risk
+                </h3>
+
+                <p>
+                    Review the risk score, status and
+                    detected warning indicators.
+                </p>
+
+            </div>
+
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Verify
+                </h3>
+
+                <p>
+                    Verify the opportunity through
+                    official company sources before
+                    taking further action.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <div class="cta-content">
+
+            <h2>
+                Have a Job Offer You Are Unsure About?
+            </h2>
+
+            <p>
+                Analyze the available details with JobGuard
+                before applying or sharing sensitive information.
+            </p>
+
+            <a href="{{ url_for('analyze') }}"
+               class="btn primary-btn">
+                Analyze Job Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Disclaimer -->
+
+    <section class="disclaimer-section">
+
+        <div class="disclaimer-box">
+
+            <h3>
+                ⚠️ Important Disclaimer
+            </h3>
+
+            <p>
+                JobGuard provides AI-assisted risk analysis
+                based on the information supplied by the user.
+                A result does not guarantee that a job is genuine
+                or fraudulent. Always verify job opportunities
+                through official company websites and trusted
+                sources.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>
+                    JobGuard
+                </h3>
+
+                <p>
+                    AI-assisted fake job detection and
+                    verification system.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('analyze') }}">
+                    Analyze
+                </a>
+
+                <a href="{{ url_for('history') }}">
+                    History
+                </a>
+
+                <a href="{{ url_for('safety') }}">
+                    Safety
+                </a>
+
+                <a href="{{ url_for('about') }}">
+                    About
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 JobGuard. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JobGuard | Report a Job</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            JobGuard
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="{{ url_for('home') }}">Home</a>
+
+            <a href="{{ url_for('analyze') }}">
+                Analyze Job
+            </a>
+
+            <a href="{{ url_for('history') }}">
+                History
+            </a>
+
+            <a href="{{ url_for('safety') }}">
+                Safety Guide
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('report') }}" class="active">
+                Report a Job
+            </a>
+
+            <a href="{{ url_for('admin_login') }}">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('signup') }}">
+                Sign Up
+            </a>
+
+        </nav>
+
+        <button id="menuButton" class="menu-button">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- Page Header -->
+
+    <section class="page-header">
+
+        <div>
+
+            <span class="hero-badge">
+                JOB SAFETY
+            </span>
+
+            <h1>
+                Report a Suspicious Job
+            </h1>
+
+            <p>
+                Help identify suspicious job opportunities by
+                submitting the details you found.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Report Section -->
+
+    <section class="report-section">
+
+        <div class="report-container">
+
+
+            <!-- Information -->
+
+            <div class="report-info">
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        ⚠️
+                    </div>
+
+                    <h2>
+                        Why Report?
+                    </h2>
+
+                    <p>
+                        Reporting suspicious job postings can help
+                        bring attention to potentially risky
+                        recruitment practices.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🔍
+                    </div>
+
+                    <h2>
+                        What to Include
+                    </h2>
+
+                    <ul>
+
+                        <li>
+                            Job title and company name
+                        </li>
+
+                        <li>
+                            Suspicious claims or requests
+                        </li>
+
+                        <li>
+                            Job description
+                        </li>
+
+                        <li>
+                            Job URL if available
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🛡️
+                    </div>
+
+                    <h2>
+                        Stay Safe
+                    </h2>
+
+                    <p>
+                        Never share passwords, OTPs, banking
+                        details or other sensitive information
+                        with suspicious recruiters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Report Form -->
+
+            <div class="report-card">
+
+                <div class="form-header">
+
+                    <h2>
+                        Submit Job Report
+                    </h2>
+
+                    <p>
+                        Fields marked with * are required.
+                    </p>
+
+                </div>
+
+
+                <form action="{{ url_for('submit_report') }}"
+                      method="POST">
+
+
+                    <div class="form-group">
+
+                        <label for="job_title">
+                            Job Title *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_title"
+                            name="job_title"
+                            placeholder="Example: Data Entry Executive"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            placeholder="Enter company name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="job_url">
+                            Job URL
+                        </label>
+
+                        <input
+                            type="url"
+                            id="job_url"
+                            name="job_url"
+                            placeholder="https://example.com/job">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="reason">
+                            Reason for Reporting *
+                        </label>
+
+                        <select
+                            id="reason"
+                            name="reason"
+                            required>
+
+                            <option value="">
+                                Select a reason
+                            </option>
+
+                            <option value="Registration or payment fee">
+                                Registration or payment fee
+                            </option>
+
+                            <option value="Unrealistic salary claim">
+                                Unrealistic salary claim
+                            </option>
+
+                            <option value="Suspicious contact method">
+                                Suspicious contact method
+                            </option>
+
+                            <option value="No proper company information">
+                                No proper company information
+                            </option>
+
+                            <option value="Suspicious website or link">
+                                Suspicious website or link
+                            </option>
+
+                            <option value="Other suspicious activity">
+                                Other suspicious activity
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="description">
+                            Additional Details
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="7"
+                            placeholder="Explain why you think this job is suspicious..."></textarea>
+
+                    </div>
+
+
+                    <div class="report-warning">
+
+                        <strong>
+                            ⚠️ Please verify before submitting
+                        </strong>
+
+                        <p>
+                            Provide accurate information based on
+                            the job posting you encountered.
+                        </p>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn primary-btn report-btn">
+                        Submit Report
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>
+                    JobGuard
+                </h3>
+
+                <p>
+                    AI-assisted fake job detection and
+                    verification system.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('analyze') }}">
+                    Analyze
+                </a>
+
+                <a href="{{ url_for('history') }}">
+                    History
+                </a>
+
+                <a href="{{ url_for('safety') }}">
+                    Safety
+                </a>
+
+                <a href="{{ url_for('about') }}">
+                    About
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 JobGuard. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

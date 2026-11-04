@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis History - JobGuard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            JobGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('analyze') }}">
+                Analyze Job
+            </a>
+
+            <a href="{{ url_for('history') }}" class="active">
+                History
+            </a>
+
+            <a href="{{ url_for('safety') }}">
+                Safety Guide
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+        </div>
+
+        <div class="nav-buttons">
+
+            <a href="{{ url_for('admin_login') }}"
+               class="login-btn">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('signup') }}"
+               class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Page Header -->
+
+    <section class="page-header">
+
+        <h1>
+            Analysis History
+        </h1>
+
+        <p>
+            View previously analyzed job postings.
+        </p>
+
+    </section>
+
+
+    <!-- History -->
+
+    <section class="history-section">
+
+        <div class="history-container">
+
+
+            <!-- Search -->
+
+            <div class="history-tools">
+
+                <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search job title or company..."
+                    onkeyup="searchHistory()">
+
+                <a
+                    href="{{ url_for('analyze') }}"
+                    class="dashboard-button">
+
+                    + Analyze New Job
+
+                </a>
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="table-container">
+
+                {% if jobs %}
+
+                <table id="historyTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Job Title</th>
+
+                            <th>Company</th>
+
+                            <th>Risk Score</th>
+
+                            <th>Status</th>
+
+                            <th>Analyzed On</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for job in jobs %}
+
+                        <tr>
+
+                            <td>
+                                #{{ job.id }}
+                            </td>
+
+
+                            <td>
+                                {{ job.job_title }}
+                            </td>
+
+
+                            <td>
+                                {{ job.company }}
+                            </td>
+
+
+                            <td>
+
+                                {% if job.risk_score >= 60 %}
+
+                                <strong class="risk-high">
+                                    {{ job.risk_score }}%
+                                </strong>
+
+                                {% elif job.risk_score >= 30 %}
+
+                                <strong class="risk-medium">
+                                    {{ job.risk_score }}%
+                                </strong>
+
+                                {% else %}
+
+                                <strong class="risk-low">
+                                    {{ job.risk_score }}%
+                                </strong>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <td>
+
+                                {% if job.risk_status == "Potentially Suspicious" %}
+
+                                <span class="pill red">
+                                    Potentially Suspicious
+                                </span>
+
+                                {% elif job.risk_status == "Needs Verification" %}
+
+                                <span class="pill yellow">
+                                    Needs Verification
+                                </span>
+
+                                {% else %}
+
+                                <span class="pill green">
+                                    Lower Risk
+                                </span>
+
+                                {% endif %}
+
+                            </td>
+
+
+                            <td>
+                                {{ job.created_at }}
+                            </td>
+
+
+                            <td>
+
+                                <a
+                                    href="{{ url_for('result', job_id=job.id) }}"
+                                    class="view-btn">
+
+                                    View Result
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- No Search Results -->
+
+                <div
+                    id="noResults"
+                    class="empty-state"
+                    style="display:none;">
+
+                    <h3>
+                        No matching jobs found
+                    </h3>
+
+                    <p>
+                        Try searching with another job title or company.
+                    </p>
+
+                </div>
+
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        No Analysis History
+                    </h3>
+
+                    <p>
+                        You haven't analyzed any jobs yet.
+                    </p>
+
+                    <a
+                        href="{{ url_for('analyze') }}"
+                        class="dashboard-button">
+
+                        Analyze Your First Job
+
+                    </a>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 JobGuard. AI-Assisted Job Safety System.
+        </p>
+
+    </footer>
+
+
+    <!-- Search Script -->
+
+    <script>
+
+        function searchHistory() {
+
+            let input =
+                document.getElementById("historySearch");
+
+            let filter =
+                input.value.toLowerCase();
+
+            let table =
+                document.getElementById("historyTable");
+
+            let noResults =
+                document.getElementById("noResults");
+
+            if (!table) {
+                return;
+            }
+
+            let rows =
+                table.getElementsByTagName("tbody")[0]
+                .getElementsByTagName("tr");
+
+            let found = false;
+
+
+            for (let i = 0; i < rows.length; i++) {
+
+                let text =
+                    rows[i].innerText.toLowerCase();
+
+                if (text.includes(filter)) {
+
+                    rows[i].style.display = "";
+
+                    found = true;
+
+                } else {
+
+                    rows[i].style.display = "none";
+
+                }
+
+            }
+
+
+            if (noResults) {
+
+                if (found) {
+
+                    noResults.style.display = "none";
+
+                } else {
+
+                    noResults.style.display = "block";
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

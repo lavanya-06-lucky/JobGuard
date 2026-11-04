@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - JobGuard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            JobGuard
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">Home</a>
+
+            <a href="{{ url_for('analyze') }}">Analyze Job</a>
+
+            <a href="{{ url_for('history') }}">History</a>
+
+            <a href="{{ url_for('safety') }}">Safety Guide</a>
+
+            <a href="{{ url_for('about') }}" class="active">
+                About
+            </a>
+
+            <a href="{{ url_for('report') }}">
+                Report a Job
+            </a>
+
+        </div>
+
+        <div class="nav-buttons">
+
+            <a href="{{ url_for('admin_login') }}" class="login-btn">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('signup') }}" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="about-hero">
+
+        <div class="about-content">
+
+            <h1>
+                About JobGuard
+            </h1>
+
+            <p>
+                A smarter way to evaluate online job postings
+                and identify potentially suspicious opportunities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Project -->
+
+    <section class="about-section">
+
+        <div class="about-container">
+
+            <h2>
+                What is JobGuard?
+            </h2>
+
+            <p>
+                JobGuard is an AI-assisted job verification system
+                designed to help job seekers evaluate online job
+                postings before applying.
+            </p>
+
+            <p>
+                The system analyzes information such as job title,
+                company details, description, salary, experience,
+                contact information and job links.
+            </p>
+
+            <p>
+                Based on these details, JobGuard generates a risk
+                score and highlights suspicious indicators that
+                users should verify before proceeding.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="features-section">
+
+        <div class="about-container">
+
+            <h2>
+                What JobGuard Provides
+            </h2>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI-Assisted Analysis
+                    </h3>
+
+                    <p>
+                        Uses machine learning and text analysis
+                        to identify patterns commonly associated
+                        with suspicious job postings.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⚠️
+                    </div>
+
+                    <h3>
+                        Risk Indicators
+                    </h3>
+
+                    <p>
+                        Highlights indicators such as payment
+                        requests, unusual salary claims,
+                        messaging-only communication and
+                        shortened links.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Risk Score
+                    </h3>
+
+                    <p>
+                        Provides a simple risk score to help users
+                        understand how carefully a job opportunity
+                        should be verified.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Job Reports
+                    </h3>
+
+                    <p>
+                        Users can report suspicious job postings
+                        and provide information that can help
+                        improve awareness.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🗄️
+                    </div>
+
+                    <h3>
+                        Secure Database
+                    </h3>
+
+                    <p>
+                        Job analysis records and submitted reports
+                        are stored in a MySQL database for organized
+                        management.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Safety Guidance
+                    </h3>
+
+                    <p>
+                        Provides practical safety tips to help users
+                        recognize suspicious recruitment practices
+                        before sharing money or personal information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+
+    <section class="how-section">
+
+        <div class="about-container">
+
+            <h2>
+                How JobGuard Works
+            </h2>
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <span>1</span>
+
+                    <h3>
+                        Enter Job Details
+                    </h3>
+
+                    <p>
+                        Enter the information available in the
+                        job posting.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>2</span>
+
+                    <h3>
+                        Analyze
+                    </h3>
+
+                    <p>
+                        JobGuard analyzes the provided information
+                        using machine learning and rule-based checks.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>3</span>
+
+                    <h3>
+                        View Risk
+                    </h3>
+
+                    <p>
+                        A risk score and suspicious indicators
+                        are displayed.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>4</span>
+
+                    <h3>
+                        Verify
+                    </h3>
+
+                    <p>
+                        Users can verify the employer and job
+                        details before taking further action.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Technology -->
+
+    <section class="technology-section">
+
+        <div class="about-container">
+
+            <h2>
+                Technologies Used
+            </h2>
+
+            <div class="technology-list">
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Python</span>
+
+                <span>Flask</span>
+
+                <span>MySQL</span>
+
+                <span>Pandas</span>
+
+                <span>Scikit-learn</span>
+
+                <span>TF-IDF</span>
+
+                <span>Logistic Regression</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Disclaimer -->
+
+    <section class="disclaimer-section">
+
+        <div class="about-container">
+
+            <h2>
+                Important
+            </h2>
+
+            <p>
+                JobGuard provides an AI-assisted risk assessment.
+                It does not guarantee that a job posting is genuine
+                or fraudulent. Users should independently verify
+                the employer, recruitment process and job details
+                before sharing personal information or making any
+                payment.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 JobGuard. AI-Assisted Job Safety System.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

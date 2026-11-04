@@ -1,3 +1,7 @@
 Flask
 gunicorn
 mysql-connector-python
+joblib
+scikit-learn
+numpy
+pandas
